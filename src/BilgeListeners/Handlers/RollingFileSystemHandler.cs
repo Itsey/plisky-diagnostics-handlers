@@ -1,5 +1,4 @@
 ﻿namespace Plisky.Diagnostics.Listeners {
-
     using System;
     using System.Diagnostics;
     using System.IO;
@@ -10,7 +9,6 @@
     /// Handler to write the messages to the file system
     /// </summary>
     public class RollingFileSystemHandler : BaseHandler, IBilgeMessageListener {
-
         /// <summary>
         /// The currently active filename
         /// </summary>
@@ -64,6 +62,13 @@
         /// <param name="fileName">A filename mask</param>
         /// <returns>A filename extracting the mask elements</returns>
         public string GetFilenameFromMask(string directory, string fileName) {
+            if (string.IsNullOrEmpty(directory)) {
+                throw new ArgumentNullException(nameof(directory));
+            }
+            if (string.IsNullOrEmpty(fileName)) {
+                throw new ArgumentNullException(nameof(fileName));
+            }
+
             fileName = fileName.ToLower();
 
             if (fileName.Contains("%")) {
