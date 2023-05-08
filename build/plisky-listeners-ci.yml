@@ -61,6 +61,8 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    testAssemblyVer2: |
+      **\*listeners.test*.dll\n!**\*TestAdapter.dll\n!**\obj\**
 
 - task: PowerShell@2
   displayName: 'Build Complete.'
