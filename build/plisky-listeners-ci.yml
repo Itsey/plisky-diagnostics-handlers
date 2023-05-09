@@ -57,13 +57,21 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: 'Runnig Tests - $(buildConfiguration)'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    testAssemblyVer2: |
-      **\*Listeners.Test*.dll\n!**\*TestAdapter.dll\n!**\obj\**
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    publishTestResults: true
 
+
+#- task: VSTest@2
+#  inputs:
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+#    testAssemblyVer2: |
+#      **\*Listeners.Test*.dll\n!**\*TestAdapter.dll\n!**\obj\**
+          
 - task: PowerShell@2
   displayName: 'Build Complete.'
   inputs:
