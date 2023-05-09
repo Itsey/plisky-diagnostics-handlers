@@ -50,6 +50,8 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    testAssemblyVer2: |
+      **\*Listeners.Test*.dll\n!**\*TestAdapter.dll\n!**\obj\**
 
 - task: NuGetCommand@2
   inputs:
