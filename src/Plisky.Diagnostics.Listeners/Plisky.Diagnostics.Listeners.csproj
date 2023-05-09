@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net461;net452;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net461;net452;net48;</TargetFrameworks>
     <AssemblyName>Plisky.Diagnostics.Listeners</AssemblyName>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>

@@ -38,11 +38,11 @@
 		<tags>trace logger logging logs application app bilge plisky piffle error diagnostics</tags>
 		<dependencies>
           <group targetFramework=".NETFramework4.5.2" />
+          <group targetFramework=".NETFramework4.6.1" />
           <group targetFramework=".NETFramework4.8" />
 
           <group targetFramework=".NETStandard2.0" />
-
-          
+         
           <group targetFramework="net6.0" />
           <group targetFramework="net7.0" />
 		</dependencies>
@@ -56,7 +56,12 @@
       <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net452\Plisky.Diagnostics.Listeners.Pdb" target="lib\net452\" />
       <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net452\Plisky.Diagnostics.Listeners.xml" target="lib\net452\" />
 
-      <!-- Framework 452 -->
+      <!-- Framework 461 -->
+      <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net452\Plisky.Diagnostics.Listeners.Dll" target="lib\net461\" />
+      <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net452\Plisky.Diagnostics.Listeners.Pdb" target="lib\net461\" />
+      <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net452\Plisky.Diagnostics.Listeners.xml" target="lib\net461\" />
+      
+      <!-- Framework 48 -->
       <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net48\Plisky.Diagnostics.Listeners.Dll" target="lib\net48\" />
       <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net48\Plisky.Diagnostics.Listeners.Pdb" target="lib\net48\" />
       <file src="..\..\Plisky.Diagnostics.Listeners\Bin\$configuration$\net48\Plisky.Diagnostics.Listeners.xml" target="lib\net48\" />
