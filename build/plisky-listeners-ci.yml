@@ -62,6 +62,7 @@ steps:
   inputs:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration)'
+    projects: '**/*.Test.csproj'
     publishTestResults: true
 
 
