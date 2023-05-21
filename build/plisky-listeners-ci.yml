@@ -65,7 +65,17 @@ steps:
     projects: '**/*.Test.csproj'
     publishTestResults: true
 
-
+- task: PublishSymbols@2
+  inputs:
+    SearchPattern: '**/bin/**/*.pdb'
+    SymbolServerType: 'FileShare'
+    SymbolsPath: '\\192.168.0.13\DevShare\Symbols'
+    CompressSymbols: false
+    UseNetCoreClientTool: true
+    IndexSources: true
+    SymbolsVersion: $(buildVersionNumber)
+    SymbolsProduct: "Plisky-Diagnostics-Handlers"
+    
 #- task: VSTest@2
 #  inputs:
 #    platform: '$(buildPlatform)'
