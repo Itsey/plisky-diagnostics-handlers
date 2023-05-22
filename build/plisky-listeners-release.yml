@@ -54,14 +54,14 @@ steps:
     projects: '**/*.Test.csproj'
     publishTestResults: true
 
-- task: PublishSymbols@2
-  inputs:
-    symbolsFolder: '$(Build.SourcesDirectory)'
-    publishSymbols: true
-    symbolServerType: 'Azure Pipelines'
-    serverUrl: '$(System.CollectionUri)'
-    indexSources: '**/*.pdb'
-    publishSymbolsPath: '$(Build.ArtifactStagingDirectory)'
+#- task: PublishSymbols@2
+#  inputs:
+#    symbolsFolder: '$(Build.SourcesDirectory)'
+#    publishSymbols: true
+#    symbolServerType: 'Azure Pipelines'
+#    serverUrl: '$(System.CollectionUri)'
+#    indexSources: '**/*.pdb'
+#    publishSymbolsPath: '$(Build.ArtifactStagingDirectory)'
 
 - task: NuGetCommand@2
   inputs:
