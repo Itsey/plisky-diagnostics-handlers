@@ -75,7 +75,7 @@ steps:
   inputs:
     script: |
       echo Stashing the completed Packages      
-      del $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.*nupkg /q
+      del c:\files\publishing\Plisky.Listeners*.*nupkg /q
       copy $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.*nupkg c:\files\publishing\ /y
       
       echo Packages Copied.
