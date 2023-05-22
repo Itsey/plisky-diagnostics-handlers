@@ -75,8 +75,8 @@ steps:
   inputs:
     script: |
       echo Stashing the completed Packages      
-      del $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.?nupkg /y
-      copy $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.?nupkg c:\files\publishing\ /y
+      del $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.*nupkg /q
+      copy $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.*nupkg c:\files\publishing\ /y
       
       echo Packages Copied.
 
@@ -85,6 +85,6 @@ steps:
     script: |
       @echo off
       echo Please Release me let me go      
-      c:\files\buildtools\releasescripts\nugetpush.cmd C:\files\publishing\Plisky.Listeners*.nupkg
+      c:\files\buildtools\releasescripts\nugetpush.cmd C:\files\publishing\Plisky.Listeners*.*nupkg
 
       echo Done
