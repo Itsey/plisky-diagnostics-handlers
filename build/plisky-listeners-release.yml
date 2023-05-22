@@ -54,19 +54,29 @@ steps:
     projects: '**/*.Test.csproj'
     publishTestResults: true
 
+- task: PublishSymbols@2
+  inputs:
+    symbolsFolder: '$(Build.SourcesDirectory)'
+    publishSymbols: true
+    symbolServerType: 'Azure Pipelines'
+    serverUrl: '$(System.CollectionUri)'
+    indexSources: '**/*.pdb'
+    publishSymbolsPath: '$(Build.ArtifactStagingDirectory)'
+
 - task: NuGetCommand@2
   inputs:
-    command: 'pack'
+    command: 'custom'
     packagesToPack: '**/PliskyListeners.nuspec;'
     versioningScheme: 'off'
+    arguments: pack $(build.sourcesDirectory)\src\_Dependencies\Packaging\PliskyListeners.nuspec -NonInteractive -OutputDirectory $(Build.ArtifactStagingDirectory) -Properties Configuration=Release -Symbols -Verbosity Detailed -SymbolPackageFormat snupkg
     includeSymbols: true
 
 - task: CmdLine@2
   inputs:
     script: |
       echo Stashing the completed Packages      
-      del $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.nupkg /y
-      copy $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.nupkg c:\files\publishing\ /y
+      del $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.?nupkg /y
+      copy $(Build.ArtifactStagingDirectory)\Plisky.Listeners*.?nupkg c:\files\publishing\ /y
       
       echo Packages Copied.
 

@@ -30,11 +30,11 @@
             await sut.HandleMessageAsync(msg);
             sut.SetFormatter(new FlimFlamV2Formatter());
 
-            var allMsgs = sut.GetAllMessages();
-            List<string> pastMessages = new List<string>();
+            string[] allMsgs = sut.GetAllMessages();
+            var pastMessages = new List<string>();
 
-            foreach (var f in allMsgs) {
-                foreach (var l in pastMessages) {
+            foreach (string f in allMsgs) {
+                foreach (string l in pastMessages) {
                     Assert.NotEqual(l, f);
                 }
                 pastMessages.Add(f);
@@ -113,7 +113,7 @@
             string second = sut.GetMessage();
             await sut.HandleMessageAsync(msg);
 
-            ///When a formatter does not contain a uniqueness reference this string is used in its place
+            // When a formatter does not contain a uniqueness reference this string is used in its place
             Assert.DoesNotContain(BaseMessageFormatter.DEFAULT_UQR, first);
             Assert.Equal(first, second);
         }
